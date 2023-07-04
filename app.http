@@ -1,0 +1,79 @@
+GET http://localhost:3001/ HTTP/1.1
+###
+
+GET http://localhost:3001/todos/?status=TO%20D0 HTTP/1.1
+###
+
+GET http://localhost:3001/todos/?priority=HIGH HTTP/1.1 
+###
+
+GET http://localhost:3001/todos/?priority=HIGH&status=IN%20PROGRESS HTTP/1.1
+###
+
+GET http://localhost:3001/todos/?search_q=Buy HTTP/1.1
+###
+
+GET http://localhost:3001/todos/?category=WORK&status=DONE HTTP/1.1
+###
+
+GET http://localhost:3001/todos/?category=HOME HTTP/1.1
+###
+
+GET http://localhost:3001/todos/?category=LEARNING&priority=HIGH HTTP/1.1
+###
+
+GET http://localhost:3001/todos/3/ HTTP/1.1
+###
+
+GET http://localhost:3001/agenda/?date=2021-1-12 HTTP/1.1
+###
+
+
+POST http://localhost:3001/todos/ HTTP/1.1
+Content-Type: application/json
+
+{
+ "id": 8,
+ "todo": "evente",
+ "priority": "LOW",
+ "status": "TO DO",
+ "category": "HOME",
+ "dueDate": "2021-02-22"
+}
+###
+
+//update
+PUT http://localhost:3001/todos/1/ HTTP/1.1
+Content-Type: application/json
+
+{ "status": "DONE" }
+###
+
+PUT http://localhost:3001/todos/1/ HTTP/1.1
+Content-Type: application/json
+
+{ "priority": "HIGH" }
+###
+
+PUT http://localhost:3001/todos/1/ HTTP/1.1
+Content-Type: application/json
+
+{
+"todo": "Clean the garden"
+}
+###
+
+PUT http://localhost:3001/todos/1/ HTTP/1.1
+Content-Type: application/json
+
+{ "category": "LEARNING" }
+###
+
+PUT http://localhost:3001/todos/1/ HTTP/1.1
+Content-Type: application/json
+
+{ "dueDate": "2021-01-12" }
+###
+
+// delete todo
+DELETE http://localhost:3001/todos/8/ HTTP/1.1
